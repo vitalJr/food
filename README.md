@@ -17,19 +17,27 @@ P.S: PARA CORREÇÃO DO NAVIGATION FOI NECESSÁRIO A INSTALAÇÃO DE ALGUNS PACO
 expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
 npm install react-navigation-stack @react-native-community/masked-view
 
+<br>
+<br>
+
 O react sofreu algumas atualizações por isso foi necessário alterar a forma como o 'createStackNavigator' é importado, segue a forma correta abaixo:
 
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+<p>import { createAppContainer } from 'react-navigation';</p>
+<p>import { createStackNavigator } from 'react-navigation-stack';</p>
 
 -* Reinicie o App limpando o cache com <b>expo r -c</b>
-Se você ainda está apresentando o erro ao iniciar o projeto limpe atualize o projeto e limpe o chache:
+<p>Se você ainda está apresentando o erro ao iniciar o projeto limpe atualize o projeto e limpe o chache:<p>
 <b>1. expo upgrade</b>
 <b>2. expo r -c</b>
+  
+  <br>
+  <br>
 
 para importação dos icones:
 https://expo.github.io/vector-icons/
 --import { Feather } from '@expo/vector-icons';
+
+<br>
 
 <img src="https://user-images.githubusercontent.com/11637810/86760004-cf7f0400-c03c-11ea-82bd-4d01e46a185b.PNG" >
 
