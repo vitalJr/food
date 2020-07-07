@@ -1,5 +1,6 @@
 # food
 React-Native + Expo + HOOKs + Axios + API YELP FOR DEVELOPERS
+<b>npx expo-cli init NOME-PROJETO</b>
 
 
 <h1>Projeto FOOD</h1>
