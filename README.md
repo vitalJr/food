@@ -34,7 +34,8 @@ O react sofreu algumas atualizações por isso foi necessário alterar a forma c
   <br>
 
 para importação dos icones:
-https://expo.github.io/vector-icons/
+<a href="https://expo.github.io/vector-icons/">Icones que podem ser importados no projeto </a>
+<p>Forma com são importados, onde o nome <b>"FEATHER"</b> representa o tipo de icone que se deseja importar.</p>
 --import { Feather } from '@expo/vector-icons';
 
 <br>
