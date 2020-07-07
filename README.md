@@ -38,7 +38,9 @@ para importação dos icones:
 <p>Forma com são importados, onde o nome <b>"FEATHER"</b> representa o tipo de icone que se deseja importar.</p>
 --import { Feather } from '@expo/vector-icons';
 
-<br>
+</br>
+</br>
+</br>
 
 <img src="https://user-images.githubusercontent.com/11637810/86760004-cf7f0400-c03c-11ea-82bd-4d01e46a185b.PNG" >
 
