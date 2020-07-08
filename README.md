@@ -10,7 +10,7 @@ React-Native + Expo + HOOKs + Axios + API YELP FOR DEVELOPERS
 <h3>Pacotes utilizados</h3>
 <ul>
   <li><b>REACT-NAVIGATION</b> -> npm install react-navigation</li>
-  <li><b>AXIOS</b> -> npm install axaios</li>
+  <li><b>AXIOS</b> -> npm install axios</li>
 </ul>
 
 
