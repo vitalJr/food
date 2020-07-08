@@ -13,14 +13,12 @@ const SearhcScreen = () => {
     const [searchAPI, results, errorMessage] = useResults();
 
     const filterResultsByPrice = (price) => {
-        // price === $ || $$ || $$$
         return results.filter(result => {
             return result.price === price;
         })
     }
 
     return (
-        // <View style={{ flex: 1 }}>
         <>
             <SearhcBar
                 term={term}
@@ -28,7 +26,7 @@ const SearhcScreen = () => {
                 onTermSubmit={() => searchAPI(term)}
             />
 
-            {errorMessage ? <Text>{errorMessage}</Text> : null}
+            {/* {errorMessage ? <Text>{errorMessage}</Text> : null} */}
             {/* <Text>We have found {results.length} results</Text> */}
 
             <ScrollView>
@@ -46,7 +44,6 @@ const SearhcScreen = () => {
                      />
             </ScrollView>
         </>
-        // </View>
     );
 }
 

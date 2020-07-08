@@ -22,6 +22,14 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": ""
+    "description": "",
+    "android": {
+      "package": "com.food",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDVPPEdR9YhkZRdKjFo-VMu1oUvoFXAwHw"
+        }
+      }
+    }
   }
 }

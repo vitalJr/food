@@ -12,7 +12,6 @@ export default () => {
                     limit: 50,
                     term: searchTerm,
                     location: 'brazil'
-                    // location: 'san jose'
                 }
             });
             setResults(response.data.businesses)
@@ -23,7 +22,7 @@ export default () => {
     }
 
     useEffect(() => {
-        searchAPI('arroz');
+        searchAPI('');
     }, []);
 
     return [searchAPI, results, errorMessage];
