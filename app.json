@@ -17,7 +17,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "config":{
+        "googleMapsApiKey": "AIzaSyDVPPEdR9YhkZRdKjFo-VMu1oUvoFXAwHw"
+      }
+      
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -32,4 +37,3 @@
       }
     }
   }
-}

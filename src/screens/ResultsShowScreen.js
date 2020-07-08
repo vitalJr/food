@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity, Button } from 'react-native';
 import yelp from '../api/yelp';
 
 
@@ -14,12 +14,32 @@ const ResultsShowScreen = ({ navigation }) => {
     };
 
     const gerarMapsView = () => {
-        const region = {
-            latitude: result.coordinates.latitude,
-            longitude: result.coordinates.longitude,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421
-        }
+        const region = {}
+        navigator.geolocation.getCurrentPosition(
+            //Will give you the current location
+            position => {
+                region = {
+                    // latitude: result.coordinates.latitude,
+                    // longitude: result.coordinates.longitude,
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                    latitudeDelta: 0.0922,
+                    longitudeDelta: 0.0421
+                }
+            },
+            error => alert(error.message),
+            { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+        );
+
+        // const region = {
+        //     // latitude: result.coordinates.latitude,
+        //     // longitude: result.coordinates.longitude,
+        //     latitude: -23.5839093,
+        //     longitude: -46.6278785,
+        //     latitudeDelta: 0.0922,
+        //     longitudeDelta: 0.0421
+        // }
+
         const marker = {
             key: Math.floor(Math.random() * 9999),
             coord: {
@@ -30,17 +50,35 @@ const ResultsShowScreen = ({ navigation }) => {
             pinColor: "red"
         }
 
-        navigation.navigate("Maps", { region: region, marker: marker });
+        const destLocation = {
+            latitude: result.coordinates.latitude,
+            longitude: result.coordinates.longitude,
+        }
+
+        console.log(region);
+
+        navigation.navigate("Maps", { region, marker, destLocation });
     }
 
     const validatePrice = (price) => {
-        if(price === "$"){
+        if (price === "$") {
             return "Cheap"
-        }else if(price === "$$"){
+        } else if (price === "$$") {
             return "Modarate"
-        }else{
-            return "Expansive"
+        } else {
+            return "Expensive"
         }
+    }
+
+    const geolocation = () => {
+        navigator.geolocation.getCurrentPosition(
+            //Will give you the current location
+            position => {
+                console.log(position);
+            },
+            error => alert(error.message),
+            { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+        );
     }
 
     useEffect(() => {
@@ -78,30 +116,11 @@ const ResultsShowScreen = ({ navigation }) => {
                 <Text >Price: {validatePrice(result.price)}</Text>
             </View>
 
-
             <TouchableOpacity
                 onPress={() => gerarMapsView()}
                 style={styles.buttonMaps}>
                 <Text style={styles.textButtonMaps}>View Maps</Text>
             </TouchableOpacity>
-
-
-            {/* {region ? <MapView
-                style={styles.mapStyle}
-                zoomEnabled={true}
-                rotateEnabled={true}
-                region={region}>
-
-                {markers ? <Marker
-                    key={markers.key}
-                    title={markers.title}
-                    coordinate={markers.coord}
-                    pinColor={markers.pinColor} >
-                </Marker> : null}
-
-            </MapView> : null} */}
-
-
 
         </View>
     );
@@ -111,7 +130,7 @@ const styles = StyleSheet.create({
     containerAddress: {
         margin: 20,
         alignItems: 'center',
-        backgroundColor: '#92ab9e',
+        backgroundColor: '#d32323',
         borderColor: 'black',
         borderWidth: 1,
         padding: 10,
@@ -121,7 +140,7 @@ const styles = StyleSheet.create({
     containerDescription: {
         marginHorizontal: 20,
         alignItems: 'center',
-        backgroundColor: '#c6d7ec',
+        backgroundColor: '#bdb80f',
         borderColor: 'black',
         borderWidth: 1,
         padding: 10,
@@ -148,10 +167,11 @@ const styles = StyleSheet.create({
     },
     buttonMaps: {
         alignItems: 'center',
-        marginTop: 20
+        marginTop: 20,
+        marginBottom: 20
     },
     image: {
-        height: 250,
+        height: 230,
         width: 450,
         borderColor: 'black',
         borderWidth: 1,

@@ -26,27 +26,39 @@ const SearhcScreen = () => {
                 onTermSubmit={() => searchAPI(term)}
             />
 
-            {/* {errorMessage ? <Text>{errorMessage}</Text> : null} */}
-            {/* <Text>We have found {results.length} results</Text> */}
-
-            <ScrollView>
-                <ResultsList
-                    title="Cost Effective"
-                    results={filterResultsByPrice("$")}
-                     />
-                <ResultsList
-                    title="Bit Pricier"
-                    results={filterResultsByPrice("$$")}
-                     />
-                <ResultsList
-                    title="Big Spender"
-                    results={filterResultsByPrice("$$$")}
-                     />
-            </ScrollView>
+            {results.length > 0 ?
+                <ScrollView>
+                    <ResultsList
+                        title="Cost Effective"
+                        results={filterResultsByPrice("$")}
+                    />
+                    <ResultsList
+                        title="Bit Pricier"
+                        results={filterResultsByPrice("$$")}
+                    />
+                    <ResultsList
+                        title="Big Spender"
+                        results={filterResultsByPrice("$$$")}
+                    />
+                </ScrollView> :
+                <View style={styles.errorContainer}>
+                    <Text style={styles.errorTextStyle}>Não foi Encontrado nenhum resultado. Desculpe!</Text>
+                </View>
+            }
         </>
     );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    errorContainer: {
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    errorTextStyle: {
+        fontSize: 15,
+        fontWeight: 'bold'
+    }
+
+});
 
 export default SearhcScreen;

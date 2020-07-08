@@ -24,7 +24,7 @@ const SearhcBar = ({ term, onTermChange,onTermSubmit }) => {
 const styles = StyleSheet.create({
     background: {
         marginTop: 15,
-        backgroundColor: 'gray',
+        backgroundColor: '#ccc',
         height: 50,
         borderRadius: 5,
         marginHorizontal: 15,
@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     },
     textInpuStyle: {
         fontSize: 20,
-        flex: 1
+        flex: 1,
+        color:'black'
     },
     iconStyle: {
         fontSize: 35,
